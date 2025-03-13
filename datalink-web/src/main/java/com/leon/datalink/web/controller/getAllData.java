@@ -23,6 +23,7 @@ public class getAllData {
             "com.leon.datalink.resource.entity.",
             "com.leon.datalink.rule.entity.",
             "com.leon.datalink.node.script.",
+            "java.lang.",
             "com.leon.datalink.web.model.",
             "com.leon.datalink.core.variable.",
     };
@@ -51,15 +52,22 @@ public class getAllData {
 
             for (String tableName : tables) {
                 try {
+                    // 通过类名找到java类
 //                    Class<?> clazz = Class.forName("com.leon.datalink.core.model." + tableName);
                     Class<?> clazz = findClass(tableName);
                     List<String> fields = new ArrayList<>();
 
+                    // 读取表所有的字段
                     for (Field field : clazz.getDeclaredFields()) {
                         fields.add(field.getName());
                     }
-
                     databaseSchema.put(tableName, fields);
+
+                    /*// 读取表所有的数据
+                    ObjectStorage<?> storage = new ObjectStorage<>(clazz);
+                    List<?> values = storage.getValues(); // 获取LMDB里所有的数据*/
+
+
                 } catch (ClassNotFoundException e) {
                     databaseSchema.put(tableName, Collections.singletonList("Class not found"));
                 }
