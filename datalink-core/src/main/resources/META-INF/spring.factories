@@ -1,0 +1,3 @@
+# SpringApplicationRunListener
+org.springframework.boot.SpringApplicationRunListener=\
+com.leon.datalink.core.listener.DatalinkApplicationListener

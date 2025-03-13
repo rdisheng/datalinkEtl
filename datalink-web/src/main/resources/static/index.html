@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="zh-cmn-Hans"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/logo.png"><title>DataLink</title><style>.first-loading-wrp {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 420px;
+            height: 100%
+        }
+
+        .first-loading-wrp>h1 {
+            font-size: 128px
+        }
+
+        .first-loading-wrp .loading-wrp {
+            padding: 98px;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .dot {
+            animation: antRotate 1.2s infinite linear;
+            transform: rotate(45deg);
+            position: relative;
+            display: inline-block;
+            font-size: 32px;
+            width: 32px;
+            height: 32px;
+            box-sizing: border-box
+        }
+
+        .dot i {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            display: block;
+            background-color: #1890ff;
+            border-radius: 100%;
+            transform: scale(.75);
+            transform-origin: 50% 50%;
+            opacity: .3;
+            animation: antSpinMove 1s infinite linear alternate
+        }
+
+        .dot i:nth-child(1) {
+            top: 0;
+            left: 0
+        }
+
+        .dot i:nth-child(2) {
+            top: 0;
+            right: 0;
+            -webkit-animation-delay: .4s;
+            animation-delay: .4s
+        }
+
+        .dot i:nth-child(3) {
+            right: 0;
+            bottom: 0;
+            -webkit-animation-delay: .8s;
+            animation-delay: .8s
+        }
+
+        .dot i:nth-child(4) {
+            bottom: 0;
+            left: 0;
+            -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s
+        }
+
+        @keyframes antRotate {
+            to {
+                -webkit-transform: rotate(405deg);
+                transform: rotate(405deg)
+            }
+        }
+
+        @-webkit-keyframes antRotate {
+            to {
+                -webkit-transform: rotate(405deg);
+                transform: rotate(405deg)
+            }
+        }
+
+        @keyframes antSpinMove {
+            to {
+                opacity: 1
+            }
+        }
+
+        @-webkit-keyframes antSpinMove {
+            to {
+                opacity: 1
+            }
+        }</style><link href="/css/chunk-2e65a63d.df93d0a7.css" rel="prefetch"><link href="/css/chunk-3cfb3e1c.03172313.css" rel="prefetch"><link href="/css/chunk-4ed903b8.fb4521a8.css" rel="prefetch"><link href="/css/chunk-54b6d5e1.93922921.css" rel="prefetch"><link href="/css/chunk-ed8f5356.c4d9de4e.css" rel="prefetch"><link href="/css/user.57f86cb6.css" rel="prefetch"><link href="/js/chunk-01b30e67.046e6e40.js" rel="prefetch"><link href="/js/chunk-01bd3499.6eaaeeb8.js" rel="prefetch"><link href="/js/chunk-04b0b90f.48edcfad.js" rel="prefetch"><link href="/js/chunk-089ba15d.aead7677.js" rel="prefetch"><link href="/js/chunk-0b65ffb6.56a3d40d.js" rel="prefetch"><link href="/js/chunk-0d0de44a.0a2f3571.js" rel="prefetch"><link href="/js/chunk-0fcaf011.5e11764a.js" rel="prefetch"><link href="/js/chunk-1231aade.d3ed3af5.js" rel="prefetch"><link href="/js/chunk-219c8a13.c1a6bf71.js" rel="prefetch"><link href="/js/chunk-2258dd9b.f067ba88.js" rel="prefetch"><link href="/js/chunk-2b308327.5769bc36.js" rel="prefetch"><link href="/js/chunk-2d0a43df.ab736537.js" rel="prefetch"><link href="/js/chunk-2d0aa197.8df387e0.js" rel="prefetch"><link href="/js/chunk-2d0aad48.36d9493d.js" rel="prefetch"><link href="/js/chunk-2d0ae91a.731ca4b0.js" rel="prefetch"><link href="/js/chunk-2d0ae937.25e52380.js" rel="prefetch"><link href="/js/chunk-2d0af63c.0c0fca1f.js" rel="prefetch"><link href="/js/chunk-2d0b2b07.410ac157.js" rel="prefetch"><link href="/js/chunk-2d0ba2ee.d72d46f8.js" rel="prefetch"><link href="/js/chunk-2d0c7f61.1d894715.js" rel="prefetch"><link href="/js/chunk-2d0c8c08.450e5356.js" rel="prefetch"><link href="/js/chunk-2d0cf17f.afc8e8ad.js" rel="prefetch"><link href="/js/chunk-2d0d0022.a2588b5c.js" rel="prefetch"><link href="/js/chunk-2d0d2f05.fb6e3bd8.js" rel="prefetch"><link href="/js/chunk-2d0d3fe8.62327008.js" rel="prefetch"><link href="/js/chunk-2d0d7ae4.6099abea.js" rel="prefetch"><link href="/js/chunk-2d0da943.e2d1f3b6.js" rel="prefetch"><link href="/js/chunk-2d0daac4.e5505de7.js" rel="prefetch"><link href="/js/chunk-2d0de19e.33109f3b.js" rel="prefetch"><link href="/js/chunk-2d0df2ff.4c59d18c.js" rel="prefetch"><link href="/js/chunk-2d0df7e5.db5cada3.js" rel="prefetch"><link href="/js/chunk-2d0e2688.8959e28a.js" rel="prefetch"><link href="/js/chunk-2d0e4e6d.382aa05b.js" rel="prefetch"><link href="/js/chunk-2d0e93df.cdd6c772.js" rel="prefetch"><link href="/js/chunk-2d0ea098.517b6894.js" rel="prefetch"><link href="/js/chunk-2d0f0f38.3da91e0b.js" rel="prefetch"><link href="/js/chunk-2d209562.2b91f4ee.js" rel="prefetch"><link href="/js/chunk-2d213abb.fa2dc05e.js" rel="prefetch"><link href="/js/chunk-2d2143fd.ea0eb5b2.js" rel="prefetch"><link href="/js/chunk-2d21a3b6.739a1a28.js" rel="prefetch"><link href="/js/chunk-2d21b84a.023b6594.js" rel="prefetch"><link href="/js/chunk-2d21d458.a75e380b.js" rel="prefetch"><link href="/js/chunk-2d21dfe1.fd92fa6a.js" rel="prefetch"><link href="/js/chunk-2d22502a.d26a05f4.js" rel="prefetch"><link href="/js/chunk-2d22ca58.7c0faf32.js" rel="prefetch"><link href="/js/chunk-2d22db0a.3429eb74.js" rel="prefetch"><link href="/js/chunk-2d22e14a.efa1d604.js" rel="prefetch"><link href="/js/chunk-2e65a63d.6a2220f0.js" rel="prefetch"><link href="/js/chunk-2f96fd95.2bcb4ac9.js" rel="prefetch"><link href="/js/chunk-30597b4a.6a4b5f2a.js" rel="prefetch"><link href="/js/chunk-392de322.00b56d4b.js" rel="prefetch"><link href="/js/chunk-3cfb3e1c.62e34647.js" rel="prefetch"><link href="/js/chunk-4359d798.fa97009d.js" rel="prefetch"><link href="/js/chunk-4aa6dafe.d7984d6d.js" rel="prefetch"><link href="/js/chunk-4de57135.96eba935.js" rel="prefetch"><link href="/js/chunk-4ed903b8.598a96f9.js" rel="prefetch"><link href="/js/chunk-54b6d5e1.4bff1998.js" rel="prefetch"><link href="/js/chunk-671c785f.f97666c6.js" rel="prefetch"><link href="/js/chunk-7532b3ea.ec803065.js" rel="prefetch"><link href="/js/chunk-76fee5a0.61fe9bae.js" rel="prefetch"><link href="/js/chunk-78923a2e.e175eec6.js" rel="prefetch"><link href="/js/chunk-7c4e3a03.da787659.js" rel="prefetch"><link href="/js/chunk-7e545609.41cb1d4d.js" rel="prefetch"><link href="/js/chunk-965d2384.e0477323.js" rel="prefetch"><link href="/js/chunk-baff7d88.2712d7e0.js" rel="prefetch"><link href="/js/chunk-cfbf3d44.7ebf126f.js" rel="prefetch"><link href="/js/chunk-e13e4362.99aed7c2.js" rel="prefetch"><link href="/js/chunk-ed8f5356.e3aa243b.js" rel="prefetch"><link href="/js/fail.8693d4bd.js" rel="prefetch"><link href="/js/user.4a09ece2.js" rel="prefetch"><link href="/css/app.f45154b1.css" rel="preload" as="style"><link href="/css/chunk-vendors.354171eb.css" rel="preload" as="style"><link href="/js/app.6c01fcaa.js" rel="preload" as="script"><link href="/js/chunk-vendors.7d01be97.js" rel="preload" as="script"><link href="/css/chunk-vendors.354171eb.css" rel="stylesheet"><link href="/css/app.f45154b1.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but vue-antd-pro doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"><div class="first-loading-wrp"><h1 style="font-size: 40px">DATA LINK</h1><div class="loading-wrp"><span class="dot dot-spin"><i></i><i></i><i></i><i></i></span></div><div style="display: flex; justify-content: center; align-items: center;">正在加载</div></div></div><script src="/js/chunk-vendors.7d01be97.js"></script><script src="/js/app.6c01fcaa.js"></script></body></html>
