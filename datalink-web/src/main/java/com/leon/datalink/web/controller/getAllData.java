@@ -43,9 +43,11 @@ public class getAllData {
     @ApiOperation("获取所有数据库表名和字段信息")
     @RequestMapping(value = "/getData", method = RequestMethod.GET)
     @ResponseBody
-    public CommonResult<Map<String, List<String>>> getData() {
+    public CommonResult<Map<String, Object>> getData() {
         try {
             Map<String, List<String>> databaseSchema = new HashMap<>();
+            Map<String, Object> databaseData = new HashMap<>();
+            Map<String, Object> res = new HashMap<>();
 
             // 获取所有表（类名）
             List<String> tables = ObjectStorage.getAllTables();
@@ -63,17 +65,26 @@ public class getAllData {
                     }
                     databaseSchema.put(tableName, fields);
 
-                    /*// 读取表所有的数据
+                    // 读取表所有的数据
                     ObjectStorage<?> storage = new ObjectStorage<>(clazz);
-                    List<?> values = storage.getValues(); // 获取LMDB里所有的数据*/
+                    List<?> values = storage.getValues(); // 获取LMDB里所有的数据
+
+                    // 组合 JSON 结构
+                    Map<String, Object> tableData = new HashMap<>();
+                    tableData.put("fileds", fields);
+                    tableData.put("data",values);
+                    databaseData.put(tableName, tableData);
 
 
                 } catch (ClassNotFoundException e) {
                     databaseSchema.put(tableName, Collections.singletonList("Class not found"));
+                    databaseData.put(tableName, Collections.singletonMap("error", "Class not found"));
                 }
             }
+            res.put("databaseSchema",databaseSchema);
+            res.put("databaseData",databaseData);
 
-            return CommonResult.success(databaseSchema);
+            return CommonResult.success(res);
         } catch (Exception e) {
             return CommonResult.failed("获取数据库表信息失败：" + e.getMessage());
         }
