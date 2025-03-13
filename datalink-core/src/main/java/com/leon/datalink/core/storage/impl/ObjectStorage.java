@@ -35,6 +35,22 @@ public class ObjectStorage<T> implements DataStorage<T> {
 
     private final Dbi<ByteBuffer> db;
 
+    public static List<String> getAllTables() {
+        List<String> tableNames = new ArrayList<>();
+        try {
+            List<byte[]> rawNames = env.getDbiNames(); // 获取表名，返回的是 List<byte[]>
+            for (byte[] rawName : rawNames) {
+                tableNames.add(new String(rawName, StandardCharsets.UTF_8)); // byte[] → String
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return tableNames;
+    }
+
+
+
+
     public ObjectStorage(Class<T> clazz) throws IOException {
         synchronized (ObjectStorage.class) {
             if (env == null) {
@@ -83,7 +99,7 @@ public class ObjectStorage<T> implements DataStorage<T> {
     }
 
     @Override
-    public List<String> getKeys() {
+    public List<String> getKeys() { // 获取所有key
         List<String> result = new ArrayList<>();
         try (Txn<ByteBuffer> txn = env.txnRead()) {
             Cursor<ByteBuffer> cursor = this.db.openCursor(txn);
@@ -99,7 +115,7 @@ public class ObjectStorage<T> implements DataStorage<T> {
     }
 
     @Override
-    public List<T> getValues() {
+    public List<T> getValues() { // 获取所有java对象
         List<T> result = new ArrayList<>();
         try (Txn<ByteBuffer> txn = env.txnRead()) {
             Cursor<ByteBuffer> cursor = this.db.openCursor(txn);
